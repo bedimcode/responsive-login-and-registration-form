@@ -1,0 +1,38 @@
+========== LOGIN ACCESS ==========
+.login__title
+Log in to your account.
+
+.login__label
+Email
+Password
+
+.login__forgot
+Forgot your password?
+
+.login__button
+Login
+
+.login__social-title
+Or login with
+
+.login__switch
+Don't have an account? 
+Create Account
+
+
+========== LOGIN REGISTER ==========
+.login__title
+Create new account.
+
+.login__label
+Names
+Surnames
+Email
+Password
+
+.login__button
+Create account
+
+.login__switch
+Already have an account? 
+Log In
