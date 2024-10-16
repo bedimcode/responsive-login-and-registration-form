@@ -1,0 +1,191 @@
+/*=============== LOGIN  ===============*/
+.login{
+   position: relative;
+   height: 100vh;
+   align-items: center;
+   overflow: hidden;
+
+   &__blob{
+      display: none;
+   }
+   &__title{
+      font-size: var(--big-font-size);
+      color: var(--title-color);
+      text-align: center;
+      margin-bottom: 2rem;
+   }
+   &__box{
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: var(--container-color);
+      border-radius: 1rem;
+   }
+   &__input{
+      background: none;
+      width: 100%;
+      padding: 1.5rem 2.5rem 1.5rem 1.25rem;
+      font-weight: var(--font-semi-bold);
+      border: 3px solid transparent;
+      border-radius: 1rem;
+      z-index: 1;
+      transition: border-color .4s;
+
+      &:autofill {
+         transition: background-color 6000s, color 6000s;
+      }
+   }
+   &__label{
+      position: absolute;
+      left: 1.25rem;
+      font-weight: var(--font-semi-bold);
+      transition: transform .4s, font-size .4s, color .4s;
+   }
+   &__icon{
+      position: absolute;
+      right: 1rem;
+      font-size: 1.25rem;
+      transition: color .4s;
+   }
+   &__password{
+      cursor: pointer;
+      z-index: 10;
+   }
+   &__forgot{
+      display: block;
+      width: max-content;
+      margin: 1rem 0 0 auto;
+      font-size: var(--small-font-size);
+      font-weight: var(--font-semi-bold);
+      color: var(--text-color);
+      transition: color .4s;
+
+      &:hover{
+         color: var(--first-color);
+      }
+   }
+   &__button{
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      background-color: var(--first-color);
+      color: var(--white-color);
+      font-weight: var(--font-semi-bold);
+      padding-block: 1.5rem;
+      border-radius: 4rem;
+      margin-block: 2rem;
+      cursor: pointer;
+      transition: background-color .4s, box-shadow .4s;
+
+      &:hover{
+         background-color: var(--first-color-alt);
+         box-shadow: 0 8px 24px hsla(208, 92%, 32%, .3);
+      }
+   }
+   &__social{
+      margin-bottom: 2rem;
+
+      &-title{
+         text-align: center;
+         font-size: var(--small-font-size);
+         font-weight: var(--font-semi-bold);
+         color: var(--title-color);
+         margin-bottom: 1rem;
+      }
+      &-img{
+         width: 1rem;
+      }
+      &-links{
+         display: flex;
+         justify-content: center;
+         column-gap: 1.5rem;
+      }
+      &-link{
+         width: 32px;
+         height: 32px;
+         background-color: var(--body-color);
+         box-shadow: 0 4px 8px hsla(0, 0%, 0%, .1);
+         border-radius: .5rem;
+         display: grid;
+         place-items: center;
+         transition: transform .4s;
+
+         &:hover{
+            transform: translateY(-.25rem);
+         }
+      }
+   }
+   &__switch{
+      text-align: center;
+      font-size: var(--small-font-size);
+
+      & button{
+         background: none;
+         color: var(--first-color);
+         font-size: var(--small-font-size);
+         font-weight: var(--font-semi-bold);
+         cursor: pointer;
+         transition: color .4s;
+
+         &:hover{
+            color: var(--first-color-alt);
+         }
+      }
+   }
+   &__access,
+   &__register{
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      transition: transform .4s, opacity .4s .1s;
+   }
+   &__register{
+      transform: translateX(15rem);
+      opacity: 0;
+      pointer-events: none;
+   }
+}
+
+/* Input focus move up label */
+.login__input:focus ~ .login__label{
+   transform: translateY(-12px);
+   font-size: var(--tiny-font-size);
+}
+
+.login__input:focus{
+   padding-block: 2rem 1rem;
+}
+
+/* Input focus sticky top label */
+.login__input:not(:placeholder-shown).login__input:not(:focus) ~ .login__label{
+   transform: translateY(-12px);
+   font-size: var(--tiny-font-size);
+}
+
+.login__input:not(:placeholder-shown).login__input:not(:focus){
+   padding-block: 2rem 1rem;
+}
+
+/* Input focus color */
+.login__input:focus{
+   border-color: var(--first-color);
+}
+
+.login__input:focus ~ .login__label,
+.login__input:focus ~ .login__icon{
+   color: var(--first-color);
+}
+
+/* Show hide login & create account */
+.active .login__access{
+   transform: translateX(15rem);
+   opacity: 0;
+   pointer-events: none;
+}
+
+.active .login__register{
+   transform: translateX(0);
+   opacity: 1;
+   pointer-events: initial;
+}
